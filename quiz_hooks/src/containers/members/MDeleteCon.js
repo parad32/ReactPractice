@@ -1,20 +1,20 @@
-import { useSearchParams } from 'react-router-dom';
-import { deleteMember } from '../../service/member/member';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-
+import { useNavigate, useParams } from "react-router-dom";
+import { deleteOne } from "../../service/member/member";
+import { useEffect } from "react";
 function MDeleteCon() {
     const params = useParams();
-    console.log("params",params);
-    deleteMember(params.id); // id 삭제하는 함수
-    
-    const navigate = useNavigate();
+    const result = deleteOne(params.id);
+    const navidate = useNavigate();
     useEffect(() => {
-        console.log("삭제완료");
-        navigate("/member/list");
-    },[]);
-
-    return null;
-}   
-export default MDeleteCon;
+        if(result === 1){
+            alert("삭제 성공");
+            navidate("/member/list");
+        }
+    },[navidate, result])
+    return (
+     <div>
+        MDeleteCon
+     </div>
+    );
+  }  
+  export default MDeleteCon;

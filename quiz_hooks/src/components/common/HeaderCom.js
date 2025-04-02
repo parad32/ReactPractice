@@ -5,6 +5,7 @@ function HeaderCom() {
             <header>
                 <Link to='/'>Home </Link>
                 <Link to='/member/list'>Member</Link> &nbsp;
+                <Link to='/member/signup'>SignUp</Link> &nbsp;
                 <hr />
             </header>
             <main>

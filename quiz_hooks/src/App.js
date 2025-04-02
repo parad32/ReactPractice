@@ -1,22 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
-import { Routes, Route} from 'react-router-dom';
-import IndexCon from './containers/IndexCon';
-import MListCon from './containers/members/MListCon';
-import MOneCon from './containers/members/MOneCon';
-import MDeleteCon from './containers/members/MDeleteCon';
-import NotFound from './components/common/NotFound';
+import { Route, Routes } from 'react-router-dom';
+import IndexPage from './pages/IndexPage';
+import MListPage from './pages/member/MListPage';
 import HeaderCom from './components/common/HeaderCom';
+import NotFound from './components/common/NotFound';
+import MOnePage from './pages/member/MOnePage';
+import MDeletePage from './pages/member/MDeletePage';
+import MSignUpPage from './pages/member/MSignUpPage';
+import MUpdatePage from './pages/member/MUpdatePage';
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<HeaderCom/>}>
-        <Route path='/' element={<IndexCon/>}/>
-        <Route path='/member/list' element={<MListCon/>}/>
-        <Route path='/member/one/:id' element={<MOneCon/>}/>
-        <Route path='/member/delete/:id' element={<MDeleteCon/>}/>
-        <Route path='*' element={<NotFound/>}/>
+      <Route element={<HeaderCom />} >
+        <Route path="/" element={<IndexPage />} />
+        <Route path="/member/list" element={<MListPage />} />
+        <Route path="/member/one" element={<MOnePage />} />
+        <Route path="/member/delete/:id" element={<MDeletePage />} />
+        <Route path="/member/signup" element={<MSignUpPage />} />
+        <Route path="/member/update/:id" element={<MUpdatePage />} />
       </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
