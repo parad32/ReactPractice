@@ -22,7 +22,7 @@ function MSignUpCon() {
             alert("password is not match")
             inputRef.current[2].value = "";
             inputRef.current[2].focus();
-            return;
+            return; 
         }
 
         const result = addOne(input);
